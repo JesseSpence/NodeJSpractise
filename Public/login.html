@@ -48,13 +48,14 @@
             body: JSON.stringify({
               email: useremail,
               password: psw,
+              username: full_name
             }),
           })
             .then((response) => response.json())
             
             .then((data) => {
               console.log(data);
-              document.getElementById("greetUser").innerHTML +=` "hello" + ${ email };`
+              document.getElementById("greetUser").innerHTML +=` hello ${ email };`
             });
 
         });
