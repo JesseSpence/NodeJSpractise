@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>products</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="nav">
+    <H2><a href="./index.html">Go back ↺</a></H2>
+</div>
+    
+         <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>sku</th>
+                <th>Price</th>
+                <th>Weight</th>
+                <th>Descriptions</th>
+                <th>image</th>
+                <th>Category</th>
+                <th>Create Date</th>
+                <th>Stock</th>
+
+            </tr>
+        </thead>
+        <tbody
+id="products">
+</tbody>
+    <script>
+
+let products = [];
+const productContainer = document.getElementById("products");
+fetch("http://localhost:6969/products")
+  .then((res) => res.json())
+  .then((data) => {
+    products = data;
+    console.log(data);
+    showproducts(data);
+  });
+function showproducts(products) {
+  //   prodContainer.innerHTML = "";
+  products.forEach((product) => {
+    productContainer.innerHTML += `
+            
+				<tr>
+					<td>${ product.name }</td>
+					<td>${ product.sku }</td>
+					<td>${ product.price }</td>
+					<td>${ product.weight }</td>
+					<td>${ product.descriptions }</td>
+                    <td>${ product.image }</td>
+                    <td>${ product.category }</td>
+                    <td>${ product.create_date }</td>
+                    <td>${ product.stock }</td>
+				</tr>
+			</tbody>
+    `;
+  });
+}
+    </script>
+</body>
+
+</html>

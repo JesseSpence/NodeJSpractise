@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+    <div id="nav">
+ <H2><a href="./products.html"> products</a></H2>
+ <H2><a href="./login.html"> Login</a></H2>
+ <H2><a href="./register.html"> register</a></H2>
+</div>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>E-mail</th>
+                <th>address</th>
+                <th>country</th>
+                <th>phone</th>
+                <th>type</th>
+            </tr>
+        </thead>
+        <tbody
+id="users">
+</tbody>
+    <script>
+
+let users = [];
+const userContainer = document.getElementById("users");
+fetch("http://localhost:6969/users")
+  .then((res) => res.json())
+  .then((data) => {
+    users = data;
+    console.log(data);
+    showUsers(data);
+  });
+function showUsers(users) {
+  //   prodContainer.innerHTML = "";
+  users.forEach((user) => {
+    userContainer.innerHTML += ` 
+            <tr>
+					<td>${ user.full_name }</td>
+					<td>${ user.email }</td>
+					<td>${ user.billing_address }</td>
+					<td>${ user.country }</td>
+					<td>${ user.phone }</td>
+                    <td>${ user.user_type }</td>
+			</tr>
+			</tbody>
+    `;
+  });
+}
+
+    </script>
+</body>
+</html>

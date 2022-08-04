@@ -1,0 +1,70 @@
+ body{
+            cursor: -webkit-grab; cursor: grab;
+            background-color: rgb(186, 126, 242);
+            font-family: fantasy;
+            color: black;
+        }
+        table{
+            width:95vw;
+            margin: auto;
+            margin-top: 10%;
+        }
+      th{
+        text-decoration: overline;
+        border: 2px black solid;
+      }
+	td, th{
+		color:rgb(0, 0, 0);
+        padding:1%;
+		animation: gloski 10s infinite;
+	}
+td{
+    filter: blur(1px);
+        transition: all ease-in-out .3s;
+}
+    td:hover{
+        background-color: rgb(179, 69, 243);
+        filter: blur();
+        transform: scale(1.07);
+    }
+
+	@keyframes gloski {
+		0% {
+			box-shadow: -2px -2px 10px 2px rgb(74, 50, 211), 2px 2px 10px 2px rgb(255, 0, 170);
+		}
+		35% {
+			box-shadow: 2px 2px 10px 2px rgb(255, 251, 0), -2px -2px 10px 2px purple;
+		}
+		70% {
+			box-shadow: -2px -2px 10px 2px rgb(33, 165, 51), 2px 2px 10px 2px rgb(0, 217, 255);
+		}
+        100%{
+            box-shadow: -2px -2px 10px 2px rgb(74, 50, 211), 2px 2px 10px 2px rgb(255, 0, 170);
+        }
+	}
+
+    #nav{
+        display:flex;
+        justify-content: space-around;
+        background-color: rgba(0, 0, 0, 0.035);
+    }
+    a{
+        text-decoration: none !important;
+        color:black;
+        transition: all ease-in .1s;
+    }
+    a:hover{
+        color: pink;
+    }
+    h2{
+        transition: all ease-in .1s;
+    }
+    h2:hover{
+    transform: scale(1.1) !important;
+    }
+
+    .login-box{
+        width: fit-content;
+        margin: auto;
+    }
+    

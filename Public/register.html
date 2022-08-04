@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="nav">
+        <H2><a href="./index.html">Go back ↺</a></H2>
+    </div>
+    reg
+    <form onsubmit="event.preventDefault(); register()" method="post" >
+        <div class="box">
+        <h1>Hey !</h1>
+        <input id="fullname" type="text" name="email"  class="email"  placeholder="Username"/>
+        <input id="email" type="email" name="email"  class="email"  placeholder="Email"/>
+        <input id="password" type="password" name="email" , class="email" placeholder="Password" />
+        <input id="billing_address" type="text" name="email" , class="email" placeholder="Billing Address" />
+        <input id="shipping_address" type="text" name="email" , class="email" placeholder="Shipping Address" />
+        <input id="phone" type="text" name="email" , class="email" placeholder="Phone" />
+        <button class="navbtn" type="submit" >Sumbit </button>
+        </div>
+        </form>
+        <h2><a href="./login.html"><button class="navbtn">Sign In</button></a></h2>
+
+
+        <script>
+            function register() {
+              const email = document.querySelector("#email").value;
+              const password = document.querySelector("#password").value;
+              const fullname = document.querySelector("#fullname").value;
+              const billing_address = document.querySelector("#billing_address").value;
+              const shipping_address = document.querySelector("#shipping_address").value;
+              //   const country = document.querySelector("#country").value;
+              const phone = document.querySelector("#phone").value;
+              //   const user_type = document.querySelector("#user_type").value;
+              fetch("http://localhost:6969/users/register", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  email: email,
+                  password: password,
+                  full_name: fullname,
+                  billing_address: billing_address,
+                  default_shipping_address: shipping_address,
+                  country: "South Africa",
+                  phone: phone,
+                  user_type: "user",
+                }),
+              })
+                .then((res) => res.json())
+                .then((data) => {
+                  console.log(data);
+                });
+            }
+            </script>
+</body>
+</html>
