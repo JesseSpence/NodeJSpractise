@@ -33,6 +33,7 @@
 <h5><a href="./register.html">Don't have an account, Sign up</a></h5>
 				</div>
 	</div>
+    <div id="greetUser"></div>
     <script>
         const form = document.getElementById("form");
         form.addEventListener("submit", function (e) {
@@ -50,9 +51,10 @@
             }),
           })
             .then((response) => response.json())
-            console.log(response)
+            
             .then((data) => {
               console.log(data);
+              document.getElementById("greetUser").innerHTML = "hello" + user.fullname;
             });
 
         });
