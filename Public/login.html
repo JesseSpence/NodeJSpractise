@@ -43,7 +43,7 @@
           e.preventDefault();
           const useremail = document.getElementById("email").value;
           const psw = document.getElementById("password").value;
-          fetch("https://creating-node-api.herokuapp.com/login", {
+          fetch("https://creating-node-api.herokuapp.com/users/login", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -57,6 +57,7 @@
             .then((data) => {
               console.log(data);
             });
+            
         });
       </script>
 </body>
