@@ -280,6 +280,7 @@ router.put("/update-user", middleware, (req, res) => {
 });
 
 // FORGOT PASSWORD
+
 router.post("/forgot-psw", (req, res) => {
   return passController.forgotPsw(req, res);
 });
@@ -290,7 +291,5 @@ router.put("/reset-psw/:id", (req, res) => {
   return resetPsw(req, res);
 });
 
-
 module.exports = router;
 
-module.exports = router;
