@@ -25,6 +25,10 @@
 						<label>Password</label>
 					</div>
 					<button id="login" type="submit">Login</button>
+            
+                    <a href="./forgotPsw.html"
+        ><button class="btn">FORGOT PASSWORD</button></a
+      >
 
 <h5><a href="./register.html">Don't have an account, Sign up</a></h5>
 					
@@ -39,7 +43,7 @@
           e.preventDefault();
           const useremail = document.getElementById("email").value;
           const psw = document.getElementById("password").value;
-          fetch("http://localhost:6969/users/login", {
+          fetch("https://creating-node-api.herokuapp.com/login", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",

@@ -37,7 +37,7 @@
               //   const country = document.querySelector("#country").value;
               const phone = document.querySelector("#phone").value;
               //   const user_type = document.querySelector("#user_type").value;
-              fetch("http://localhost:6969/users/register", {
+              fetch("https://creating-node-api.herokuapp.com/users/register", {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",
@@ -53,6 +53,7 @@
                   user_type: "user",
                 }),
               })
+              .then((res) => console.log(res.json()))
                 .then((res) => res.json())
                 .then((data) => {
                   console.log(data);

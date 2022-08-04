@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="forgotPassword">
+        <h2>Please provide your email</h2>
+        <form id="forgotPSW">
+          <input
+            id="email"
+            class="email"
+            type="text"
+            placeholder="email"
+            name="email"
+          />
+          <button type="submit">SUBMIT</button>
+        </form>
+      </div>
+  
+      <script>
+        const url = "https://creating-node-api.herokuapp.com";
+        const form = document.getElementById("forgotPSW");
+        form.addEventListener("submit", forgotPsw);
+  
+        async function forgotPsw(event) {
+          event.preventDefault();
+          const email = document.getElementById("email").value;
+  
+          const response = await fetch(url + "/users/forgot-psw", {
+            method: "post",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              email,
+            }),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              let user = data.data[0];
+              let user_id = user.user_id;
+              window.localStorage.setItem("user_id", user_id);
+            });
+        }
+      </script>
+</body>
+</html>

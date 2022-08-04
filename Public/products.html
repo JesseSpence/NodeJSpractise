@@ -31,10 +31,14 @@
 id="products">
 </tbody>
     <script>
+        
+
+        let token = window.localStorage.getItem("user.token");
+          let user = JSON.parse(window.localStorage(getItem("user")));
 
 let products = [];
 const productContainer = document.getElementById("products");
-fetch("http://localhost:6969/products")
+fetch("https://creating-node-api.herokuapp.com/products")
   .then((res) => res.json())
   .then((data) => {
     products = data;

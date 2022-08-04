@@ -142,6 +142,7 @@ router.post("/register", (req, res) => {
       billing_address,
       default_shipping_address,
     } = req.body;
+
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(req.body.password, salt);
     let user = {
@@ -158,6 +159,10 @@ router.post("/register", (req, res) => {
     con.query(sql, user, (err, result) => {
       if (err) throw err;
       console.log(result);
+      res.json({
+        status: 'ok',
+        data: "User added"
+      })
       res.send(`User ${(user.full_name, user.email)} created successfully`);
     });
   } catch (error) {
