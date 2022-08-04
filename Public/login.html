@@ -54,7 +54,7 @@
             
             .then((data) => {
               console.log(data);
-              document.getElementById("greetUser").innerHTML = "hello" + user.fullname;
+              document.getElementById("greetUser").innerHTML +=` "hello" + ${ user.full_name };`
             });
 
         });
